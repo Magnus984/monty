@@ -1,1 +1,1 @@
-Monty, a bytecode interpreter
+Monty, A bytecode interpreter
