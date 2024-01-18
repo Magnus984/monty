@@ -36,12 +36,17 @@ typedef struct instruction_s
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 
 /*global variables*/
 extern FILE *stream;
 extern char *line;
+extern int lineNumber;
+extern char **tokens;
+extern int tokenNumber;
 
 /*function prototypes*/
 void get_stream(char *file_name);
-
+void print_tokens(void);
+void tokenize(void);
 #endif /*MONTY_H*/
