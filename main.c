@@ -1,6 +1,7 @@
 #include "monty.h"
 
 char *line = NULL;
+int lineNumber = 0;
 /**
  * main - entry point of program
  * @argc: argument count
@@ -22,7 +23,9 @@ int main(int argc, char **argv)
 	read = getline(&line, &n, stream);
 	while (read != -1)
 	{
-		printf("%s", line);
+		lineNumber++;
+		tokenize();
+		print_tokens();
 		read = getline(&line, &n, stream);
 	}
 	free(line);
