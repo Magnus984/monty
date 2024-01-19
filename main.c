@@ -1,10 +1,6 @@
 #include "monty.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 
-char *line = NULL;
-int lineNumber = 0;
+var_t *globalVar = NULL;
 /**
  * main - entry point of program
  * @argc: argument count
@@ -23,41 +19,22 @@ int main(int argc, char **argv)
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
+	init_args();
 	get_stream(argv[1]);
-	read = getline(&line, &n, stream);
+	read = getline(&globalVar->line, &n, globalVar->stream);
 	while (read != -1)
 	{
-		lineNumber++;
+		globalVar->lineNumber += 1;
 		tokenize();
 		print_tokens();
-		read = getline(&line, &n, stream);
+		get_instruction();
+		execute_instruction();
+		free_token_array();
+		read = getline(&globalVar->line, &n, globalVar->stream);
 	}
-	free(line);
-	fclose(stream);
+	
+	close_stream();
+	free_globalVar();
 	return (0);
 
 }
-/**
- * error_usage - This will print usage message and exit
- *
- * Return: nothing
- */
-void error_usage(void)
-{
-	fprintf(stderr, "USAGE: monty file\n");
-	exit(EXIT_FAILURE);
-}
-
-/**
- * file_error - This will print file error message and exit
- * @argv: argv given by the  manin
- *
- * Return: nothing
- */
-
-void file_error(char *argv)
-{
-	fprintf(stderr, "Error: Can't open file %s\n", argv);
-	exit(EXIT_FAILURE);
-}
-
