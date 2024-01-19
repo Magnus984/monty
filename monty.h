@@ -32,6 +32,15 @@ typedef struct instruction_s
 } instruction_t;
 
 
+/**
+ * struct help - argument for the current opcode
+ * @data_struct: stack mode, stack (default) and queue
+ * @argument: the arguments of the string
+ *
+ * Description: global structure used to pass data around the functions easily
+ */
+
+
 /*Standard libraries*/
 #include <stdio.h>
 #include <stdlib.h>
