@@ -3,7 +3,7 @@
 /**
  * is_valid_number - checks if
  * string is a valid integer number
- *
+ * @str: second token
  * Return: 1 if valid, 0 otherwise
  */
 int is_valid_number(char *str)

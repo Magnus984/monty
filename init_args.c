@@ -26,5 +26,5 @@ void init_args(void)
 	globalVar->tokenNumber = 0;
 	globalVar->stackLen = 0;
 	globalVar->stream = NULL;
+	globalVar->temp = NULL;
 }
-      	       

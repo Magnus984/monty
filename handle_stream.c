@@ -3,7 +3,7 @@
 /**
  * get_stream - gets file stream
  * @file_name: name of file to open
- * 
+ *
  * Return: no return value
  */
 void get_stream(char *file_name)
@@ -24,7 +24,7 @@ void get_stream(char *file_name)
  */
 void close_stream(void)
 {
-	if(!(globalVar->stream))
+	if (!(globalVar->stream))
 	{
 		fclose(globalVar->stream);
 		globalVar->stream = NULL;

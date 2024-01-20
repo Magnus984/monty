@@ -26,13 +26,12 @@ int main(int argc, char **argv)
 	{
 		globalVar->lineNumber += 1;
 		tokenize();
-		print_tokens();
+		/*print_tokens();*/
 		get_instruction();
 		execute_instruction();
 		free_token_array();
 		read = getline(&globalVar->line, &n, globalVar->stream);
 	}
-	
 	close_stream();
 	free_globalVar();
 	return (0);

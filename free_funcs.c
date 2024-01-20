@@ -39,7 +39,7 @@ void free_temp(void)
 
 /**
  * free_stack - frees stack
- *
+ * @temp: points to the head of the stack
  * Return: no return value
  */
 void free_stack(stack_t *temp)

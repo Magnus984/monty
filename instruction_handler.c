@@ -1,17 +1,17 @@
 #include "monty.h"
 
 /**
- * get_instruction -
+ * get_instruction - matches opcode to opcode function
  *
  * Return: no return value
  */
-void get_instruction (void)
+void get_instruction(void)
 {
 	int i;
+
 	instruction_t instructionArray[] = {
-		{"pall", &pall},
-		{"push", &push},
-		{"pint", &pint},
+		{"pall", &pall}, {"push", &push},
+		{"pint", &pint}, {"pop", &pop},
 		{NULL, NULL}};
 	if (globalVar->tokenNumber == 0)
 		return;
@@ -35,9 +35,8 @@ void get_instruction (void)
 	exit(EXIT_FAILURE);
 }
 
-
 /**
- * execute - executes instruction
+ * execute_instruction - executes instruction
  *
  * Return: no return value
  */

@@ -9,7 +9,7 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	if(globalVar->tokenNumber <= 1)
+	if (globalVar->tokenNumber <= 1 || !(is_valid_number(globalVar->tokens[1])))
 	{
 		free_globalVar();
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
