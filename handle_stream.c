@@ -24,9 +24,8 @@ void get_stream(char *file_name)
  */
 void close_stream(void)
 {
-	if (!(globalVar->stream))
-	{
-		fclose(globalVar->stream);
-		globalVar->stream = NULL;
-	}
+	if (globalVar->stream == NULL)
+		return;
+	fclose(globalVar->stream);
+	globalVar->stream = NULL;
 }

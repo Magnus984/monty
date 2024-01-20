@@ -10,7 +10,7 @@ void tokenize(void)
 	char *copy_of_line;
 	int i = 0;
 	char *token = NULL;
-	/*get the number of tokens*/
+
 	copy_of_line = strdup(globalVar->line);
 	if (copy_of_line == NULL)
 		fprintf(stderr, "string duplication failed");
@@ -21,9 +21,8 @@ void tokenize(void)
 		globalVar->tokenNumber += 1;
 		token = strtok(NULL, " \t$\n");
 	}
-	/*test_print*/
-	/*printf("Token number: %d\n", globalVar->tokenNumber);*/
-	/*assigning tokens to token array*/
+	free(copy_of_line);
+	copy_of_line = NULL;
 	globalVar->tokens = malloc(sizeof(char *)
 			* (globalVar->tokenNumber + 1));
 	if (globalVar->tokens == NULL)

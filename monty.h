@@ -1,5 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
+#define _POSIX_C_SOURCE 200809L
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -17,6 +18,7 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -31,16 +33,6 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-
-/**
- * struct help - argument for the current opcode
- * @data_struct: stack mode, stack (default) and queue
- * @argument: the arguments of the string
- *
- * Description: global structure used to pass data around the functions easily
- */
-
-
 /*Standard libraries*/
 #include <stdio.h>
 #include <stdlib.h>
@@ -48,8 +40,7 @@ typedef struct instruction_s
 #include <string.h>
 
 /**
- * struct globalvar_s - variables declared in struct
- * to make them global
+ * struct var_s - variables declared in struct to make them global
  * @stream: file stream from which reading takes place
  * @line: string of read
  * @lineNumber: linenumber read in file
@@ -57,6 +48,7 @@ typedef struct instruction_s
  * @tokenNumber: number of tokens in token array
  * @instructPtr: storing opcode and function address temporary
  * @temp: temporary mem location
+ * @stackLen: length of stack
  *
  * Description: these variables are for the various functions
  */
@@ -71,15 +63,15 @@ typedef struct var_s
 	stack_t *temp;
 	int stackLen;
 } var_t;
+
 extern var_t *globalVar;
 
 /*function prototypes*/
 void get_stream(char *file_name);
 void print_tokens(void);
 void tokenize(void);
-void get_instruction (void);
+void get_instruction(void);
 void execute_instruction(void);
-int is_valid_number(char *str);
 void init_args(void);
 void close_stream(void);
 
@@ -88,10 +80,16 @@ void free_token_array(void);
 void free_temp(void);
 void free_globalVar(void);
 void free_stack(stack_t *temp);
+void free_instructPtr(void);
+
+/*utility function prototypes*/
+int is_valid_number(char *str);
+void free_line(void);
 
 /*opcodes*/
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 
 #endif /*MONTY_H*/

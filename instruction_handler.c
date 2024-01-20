@@ -16,7 +16,7 @@ void get_instruction(void)
 	if (globalVar->tokenNumber == 0)
 		return;
 	i = 0;
-	globalVar->instructPtr = malloc(sizeof(instruction_t));
+	/*globalVar->instructPtr = malloc(sizeof(instruction_t));*/
 	while (instructionArray[i].opcode != NULL)
 	{
 		if (strcmp(instructionArray[i].opcode, globalVar->tokens[0]) == 0)

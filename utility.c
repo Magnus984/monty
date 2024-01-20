@@ -18,3 +18,18 @@ int is_valid_number(char *str)
 		return (1);
 	return (0);
 }
+
+/**
+ * free_line - frees line after each read
+ * from getline
+ *
+ * Return: no return value
+ */
+void free_line(void)
+{
+	if (globalVar->line)
+	{
+		free(globalVar->line);
+		globalVar->line = NULL;
+	}
+}

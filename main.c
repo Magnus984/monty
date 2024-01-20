@@ -29,7 +29,9 @@ int main(int argc, char **argv)
 		/*print_tokens();*/
 		get_instruction();
 		execute_instruction();
+		/*free_instructPtr();*/
 		free_token_array();
+		free_line();
 		read = getline(&globalVar->line, &n, globalVar->stream);
 	}
 	close_stream();
