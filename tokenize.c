@@ -15,11 +15,11 @@ void tokenize(void)
 	if (copy_of_line == NULL)
 		fprintf(stderr, "string duplication failed");
 	globalVar->tokenNumber = 0;
-	token = strtok(copy_of_line, " \t$\n");
+	token = strtok(copy_of_line, " \t\n");
 	while (token != NULL)
 	{
 		globalVar->tokenNumber += 1;
-		token = strtok(NULL, " \t$\n");
+		token = strtok(NULL, " \t\n");
 	}
 	free(copy_of_line);
 	copy_of_line = NULL;
@@ -28,13 +28,13 @@ void tokenize(void)
 	if (globalVar->tokens == NULL)
 		fprintf(stderr, "malloc fialed");
 	copy_of_line = strdup(globalVar->line);
-	token = strtok(copy_of_line, " \t$\n");
+	token = strtok(copy_of_line, " \t\n");
 	while (token != NULL)
 	{
 		globalVar->tokens[i] = strdup(token);
 		if (globalVar->tokens[i] == NULL)
 			fprintf(stderr, "string duplication failed");
-		token = strtok(NULL, " \t$\n");
+		token = strtok(NULL, " \t\n");
 		i++;
 	}
 	globalVar->tokens[i] = NULL;
