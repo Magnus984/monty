@@ -26,6 +26,6 @@ void add(stack_t **stack, unsigned int line_number)
 	temp0 = globalVar->temp;
 	globalVar->temp = temp0->next;
 	free(temp0);
-	globalVar->stackLen -=1;
+	globalVar->stackLen -= 1;
 }
 

@@ -12,7 +12,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	stack_t *temp1, *temp2;
 
 	(void) stack;
-	if (globalVar->stackLen <2)
+	if (globalVar->stackLen < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		close_stream();
