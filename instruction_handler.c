@@ -10,13 +10,12 @@ void get_instruction(void)
 	int i;
 
 	instruction_t instructionArray[] = {
-		{"pall", &pall}, {"push", &push},
+		{"pall", &pall}, {"push", &push}, {"mul", &mul},
 		{"pint", &pint}, {"pop", &pop}, {"sub",&sub},
 		{"swap", &swap}, {"add", &add}, {NULL, NULL}};
 	if (globalVar->tokenNumber == 0)
 		return;
 	i = 0;
-	/*globalVar->instructPtr = malloc(sizeof(instruction_t));*/
 	while (instructionArray[i].opcode != NULL)
 	{
 		if (strcmp(instructionArray[i].opcode, globalVar->tokens[0]) == 0)
