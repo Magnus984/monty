@@ -12,7 +12,8 @@ void get_instruction(void)
 	instruction_t instructionArray[] = {
 		{"pall", &pall}, {"push", &push}, {"mul", &mul},
 		{"pint", &pint}, {"pop", &pop}, {"sub",&sub},
-		{"swap", &swap}, {"add", &add}, {NULL, NULL}};
+		{"swap", &swap}, {"add", &add}, {"nop", &nop},
+		{"div", &div}, {NULL, NULL}};
 	if (globalVar->tokenNumber == 0)
 		return;
 	i = 0;
